@@ -28,6 +28,8 @@ struct ContentView: View {
     
     let inStaffDept = ["HR", "ITG","CORP"]
     
+    var depSelectd = ""
+    
     var yearsOfSrvice = [1,2,3,4,5,6,7,8,9,10,11]
     
     //Get the value of the Picker
@@ -36,35 +38,43 @@ struct ContentView: View {
         let totalStaffSal = Double(staffSal) ?? 0
         var bonusShare = 0.0
         
+        
+        
         //Calc value
         let yrSalaryAllocate = totalStaffSal / 12
     
         
     
         
-        if (inStaffDept[0] == "HR") && (totalYrOfService > 0 && totalYrOfService < 6) {
+        if (inStaffDept[staffDept] == "HR") && (totalYrOfService > 0 && totalYrOfService < 6) {
             
             bonusShare = 500.00
             
             return bonusShare + yrSalaryAllocate
             
             
-        } else if (inStaffDept[1] == "ITG") && (totalYrOfService >= 6 && totalYrOfService <= 9){
+        } else if (inStaffDept[staffDept] == "ITG") && (totalYrOfService >= 6 && totalYrOfService <= 9){
             
             bonusShare = 750.00
             
             return bonusShare + yrSalaryAllocate
             
-        } else if (inStaffDept[2] == "CORP") && (totalYrOfService > 9) {
+        } else if (inStaffDept[staffDept] == "CORP") && (totalYrOfService > 9) {
         
             bonusShare = 1000.00
             
             return bonusShare + yrSalaryAllocate
-    }
+            
+            
+        } else {
+            
+            bonusShare = 0.0
+            return bonusShare
+        }
     
     
         //return yrSalaryAllocate
-       return bonusShare
+       //return bonusShare
     }
         
     
@@ -105,8 +115,8 @@ struct ContentView: View {
                         
                          ForEach(0 ..< inStaffDept.count) {
                              
-                             
-                                Text("\(self.inStaffDept[$0])")
+                    
+                         Text("\(self.inStaffDept[$0])")
                              
                              
                              
