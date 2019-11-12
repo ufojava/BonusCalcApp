@@ -28,8 +28,6 @@ struct ContentView: View {
     
     let inStaffDept = ["HR", "ITG","CORP"]
     
-    var depSelectd = ""
-    
     var yearsOfSrvice = [1,2,3,4,5,6,7,8,9,10,11]
     
     //Get the value of the Picker
@@ -130,12 +128,6 @@ struct ContentView: View {
             
             
             
-            
-            
-            
-            
-            
-            
             Section { //Section 3
                 
                 
@@ -145,12 +137,7 @@ struct ContentView: View {
                 Text("Total bonus calc: £\(bonusCal, specifier: "%.2f")")
                 
             }
-            
-            
-            
-            
-            
-            
+        
             
         }
         .navigationBarTitle("Bonus Calc")
